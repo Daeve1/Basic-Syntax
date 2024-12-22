@@ -1,0 +1,16 @@
+int[] numbers = {10, 20, 30, 40, 50};
+for (int number : numbers) {
+    System.out.println("Number: " + number);
+}
+
+int count = 1;
+while (count < 5) {
+    System.out.println("Count: " + count);
+    count++;
+}
+
+int count = 1;
+do {
+    System.out.println("Count: " + count);
+    count++;
+} while (count < 5);
