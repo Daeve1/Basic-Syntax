@@ -1,0 +1,21 @@
+public class Datat {
+      public static void main(String[] args) {
+        byte age = 40;
+        short population = 675;
+        int balance = 46837;
+        long nationalDebt = 43546546L; 
+        float price = 99.11f; 
+        double pi = 3.5456547;
+        boolean isAdult = true;
+        char initial = 'D';
+
+        System.out.println("Age: " + age);
+        System.out.println("Population: " + population);
+        System.out.println("Balance: " + balance);
+        System.out.println("National Debt: " + nationalDebt);
+        System.out.println("Price: " + price);
+        System.out.println("Pi: " + pi);
+        System.out.println("Is Adult: " + isAdult);
+        System.out.println("Initial: " + initial);
+    }
+}
