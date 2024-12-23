@@ -1,0 +1,12 @@
+@Component
+public class MyComponent {
+
+    @Autowired
+    private ApplicationContext applicationContext;
+
+    public void doSomething() {
+        
+        String message = applicationContext.getBean("myBean", MyBean.class).getMessage();
+        System.out.println(message);
+    }
+}
