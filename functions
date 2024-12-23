@@ -1,4 +1,4 @@
-public class Mavenproject4 {
+public class Functions {
    
     public static double calculateArea(double length, double width) {
         double area = length * width;
