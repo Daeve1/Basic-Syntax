@@ -1,0 +1,83 @@
+import java.util.*;
+      public class Datastructures {
+public static void main(String[] args) {
+
+       
+        int[] numbersArray = {10, 20, 30, 40, 50};
+        System.out.println("Numbers Array: " + Arrays.toString(numbersArray));
+
+
+        
+        ArrayList<String> namesList = new ArrayList<>();
+        namesList.add("Alice");
+        namesList.add("Franco");
+        namesList.add("Johnson");
+        System.out.println("Names ArrayList: " + namesList);
+
+
+        
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.addFirst(0);
+        System.out.println("Linked List: " + linkedList);
+
+
+        
+        HashMap<String, Integer> agesMap = new HashMap<>();
+        agesMap.put("Alice", 30);
+        agesMap.put("Franco", 25);
+        agesMap.put("Johnson", 35);
+        System.out.println("Ages HashMap: " + agesMap);
+
+
+        
+        HashSet<String> uniqueCities = new HashSet<>();
+        uniqueCities.add("Bongloy");
+        uniqueCities.add("Camlon");
+        uniqueCities.add("Bongkilatun");
+        uniqueCities.add("Mapaang");
+        System.out.println("Unique Cities HashSet: " + uniqueCities);
+
+
+       
+        TreeSet<Integer> sortedNumbers = new TreeSet<>();
+        sortedNumbers.add(5);
+        sortedNumbers.add(10);
+        sortedNumbers.add(1);
+        sortedNumbers.add(20);
+        System.out.println("Sorted Numbers TreeSet: " + sortedNumbers);
+
+
+        
+        Map<String, Person> people = new HashMap<>();
+        people.put("Alice", new Person("Alice", 30, List.of("123-456-7890")));
+        people.put("Franco", new Person("Franco", 25, List.of("987-654-3210", "555-1212")));
+
+
+        System.out.println("People (HashMap of Person objects): " + people);
+    }
+
+
+    static class Person{
+        String name;
+        int age;
+        List<String> phoneNumbers;
+
+        public Person(String name, int age, List<String> phoneNumbers) {
+            this.name = name;
+            this.age = age;
+            this.phoneNumbers = phoneNumbers;
+        }
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    ", phoneNumbers=" + phoneNumbers +
+                    '}';
+        }
+    }
+}
+
