@@ -1,0 +1,14 @@
+public class Mavenproject4 {
+   
+    public static double calculateArea(double length, double width) {
+        double area = length * width;
+        return area;
+    }
+
+    public static void main(String[] args) {
+        double rectangleLength = 6.0;
+        double rectangleWidth = 4.0;
+        double calculatedArea = calculateArea(rectangleLength, rectangleWidth);
+        System.out.println("The area of the rectangle is: " + calculatedArea);
+    }
+}
