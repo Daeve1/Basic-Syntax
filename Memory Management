@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Memorymanagement {
+   
+   
+
+
+    public static void main(String[] args) {
+        List<LargeObject> largeObjects = new ArrayList<>();
+
+        for (int i = 0; i < 1000; i++) {
+            largeObjects.add(new LargeObject()); 
+        }
+
+        
+        
+        largeObjects.clear(); 
+        largeObjects = null; 
+
+        System.gc(); 
+    }
