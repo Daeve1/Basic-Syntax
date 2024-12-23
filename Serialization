@@ -1,0 +1,79 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+            
+class Address implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String street;
+    private String city;
+
+    public Address(String street, String city) {
+        this.street = street;
+        this.city = city;
+    }
+
+    // Getters and setters...
+    public String getStreet() { return street; }
+    public String getCity() { return city; }
+}
+
+
+class Person implements Serializable {
+    private static final long serialVersionUID = 1L; // Crucial for versioning
+    private String name;
+    private int age;
+    private Address address;
+    private List<String> phoneNumbers;
+
+    public Person(String name, int age, Address address, List<String> phoneNumbers) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.phoneNumbers = phoneNumbers;
+    }
+
+    // Getters and setters...
+    public String getName() { return name; }
+    public int getAge() { return age; }
+    public Address getAddress() { return address; }
+    public List<String> getPhoneNumbers() { return phoneNumbers; }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", address=" + address +
+                ", phoneNumbers=" + phoneNumbers +
+                '}';
+    }
+}
+public class Serialization {
+     public static void main(String[] args) {
+   
+      
+        Address address = new Address("123 Main St", "Anytown");
+        List<String> phones = new ArrayList<>();
+        phones.add("555-1212");
+        phones.add("555-3434");
+        Person person = new Person("Bob", 40, address, phones);
+
+        
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("person2.ser"))) {
+            oos.writeObject(person);
+        } catch (IOException e) {
+            System.err.println("Serialization failed: " + e.getMessage());
+        }
+
+        
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("person2.ser"))) {
+            Person recoveredPerson = (Person) ois.readObject();
+            System.out.println("Recovered Person: " + recoveredPerson);
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Deserialization failed: " + e.getMessage());
+        }
+    }
+}
