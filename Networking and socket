@@ -1,0 +1,48 @@
+ import java.io.*;
+import java.net.*;
+    
+
+public class Networking {
+
+  
+
+
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(8080)) { // Listen on port 8080
+            System.out.println("Server listening on port 8080...");
+            Socket clientSocket = serverSocket.accept(); // Accept a connection
+            System.out.println("Client connected: " + clientSocket.getInetAddress());
+
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
+                String message;
+                while ((message = in.readLine()) != null) {
+                    System.out.println("Client sent: " + message);
+                    out.println("Server received: " + message);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+ import java.io.*;
+import java.net.*;    
+
+public class usingsocket {
+public static void main(String[] args) {
+        try (Socket socket = new Socket("localhost", 8080);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+            BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+            String message;
+            while ((message = stdIn.readLine()) != null) {
+                out.println(message);
+                System.out.println("Server responded: " + in.readLine());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
